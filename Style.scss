@@ -1,0 +1,91 @@
+// Variables Sass
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$light-color: #f8f9fa;
+$dark-color: #343a40;
+$font-family-base: 'Arial, sans-serif';
+$base-font-size: 16px;
+
+// Mixin para centrar elementos
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Herencia para estilos base de botones
+%btn-base {
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: $base-font-size;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease;
+}
+
+// Estilos generales del sitio
+body {
+  font-family: $font-family-base;
+  font-size: $base-font-size;
+  background-color: $light-color;
+  color: $dark-color;
+  margin-top: 56px; // Espacio para la navbar fija
+}
+
+// Estilos para la navbar
+.navbar {
+  background-color: $dark-color;
+}
+
+// Estilos para el jumbotron
+.jumbotron {
+  background-color: $light-color;
+  text-align: center;
+  padding: 3rem 1rem;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+// Estilos para las cards en la página de Servicios
+.card {
+  img {
+    max-height: 200px;
+    object-fit: cover;
+  }
+}
+
+// Estilos para el formulario de Contacto
+form {
+  background-color: $light-color;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+// Botón personalizado utilizando herencia
+.btn-custom {
+  @extend %btn-base;
+  background-color: $primary-color;
+  color: white;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+// Media Queries para mejorar la responsividad en dispositivos pequeños
+@media (max-width: 576px) {
+  .jumbotron {
+    padding: 2rem 1rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+}
